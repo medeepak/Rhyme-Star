@@ -29,7 +29,7 @@ serve(async (req) => {
 
     const supabase = createClient(
       Deno.env.get('SUPABASE_URL') ?? '',
-      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
+      Deno.env.get('SERVICE_ROLE_KEY') ?? ''
     )
 
     // 1. Verify user owns the child
@@ -123,7 +123,7 @@ serve(async (req) => {
       {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')}`,
+          'Authorization': `Bearer ${Deno.env.get('SERVICE_ROLE_KEY')}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ 
